@@ -30,12 +30,12 @@ const clickFunction = function (secretNum){
         document.querySelector('body').style.backgroundColor = "rgb(211, 100, 100)";
     }
     else if (guess > secretNum){
-        document.querySelector(".message").textContent="Too High";
+        displayMessage("Too High");
         score -= 1;
         document.querySelector(".score").textContent = score;
     }
     else {
-        document.querySelector(".message").textContent="Low";
+        displayMessage("Too Low");
         score -= 1;
         document.querySelector(".score").textContent = score;
     }
@@ -46,8 +46,8 @@ const againFunction = function(){
     document.querySelector(".score").textContent = 20;
     score = 20;
     document.querySelector(".guess").value = "";
-    document.querySelector(".message").textContent = 'Start guessing...';
-    const guess = Number(Math.trunc(Math.random()*20)+1);
+    displayMessage("Start guessing...")
+    secretNum = Number(Math.trunc(Math.random()*20)+1);
     document.querySelector('.number').textContent = "?";
     document.querySelector('body').style.backgroundColor = "#d39b51";
 }
